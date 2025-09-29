@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<raiz xmlns:html="http://www.w3schools.com/HTML/intro.html"
+xmlns:m="http://www.ikea.com/namespaces">
+    <html:table>
+        <html:tr>
+            <html:td>Plátanos</html:td>
+            <html:td>Manzanas</html:td>
+        </html:tr>
+        <html:tr>
+            <html:td>Fresas</html:td>
+            <html:td>Sandías</html:td>
+        </html:tr>
+    </html:table>
+
+    <m:table>
+        <m:name>Mesa aparador IKEA Krögen</m:name>
+        <m:color>Negro</m:color>
+        <m:material>Nogal</m:material>
+    </m:table>
+</raiz>
