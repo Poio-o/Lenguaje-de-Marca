@@ -3,15 +3,15 @@
 <catalogo xmlns:dc="http://purl.org/dc/elementos1.1/">
 
     <libro id="1">
-        <titulo>El Quijote</titulo>
+        <dc:title>El Quijote</dc:title>
         <dc:date>1605</dc:date>
         <dc:publisher>Anaya</dc:publisher>
     </libro>
 
     <libro id="2">
         <dc:title>Capitán Calzoncillos</dc:title>
-        <dc:date>2001</dc:date>
-        <dc:publisher>Francisco de Robles</dc:publisher>
+        <dc:date>2013</dc:date>
+        <dc:publisher>Ediciones SM</dc:publisher>
     </libro>
-    
+
 </catalogo>

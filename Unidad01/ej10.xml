@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<agenda xmlns:dir="https://www.googlemaps.com/direcciones">
+
+    <contacto id="C1">
+        <nombre>Francisco Ramírez</nombre>
+        <telefono>778 289 210</telefono>
+        <email>franRM@gmail.com</email>
+        <dir:direccion ciudad="Málaga">
+            <dir:calle>Calle Falsa 27</dir:calle>
+            <dir:codigoPostal>29013</dir:codigoPostal>
+        </dir:direccion>
+    </contacto>
+
+    <contacto id="C2">
+        <nombre>Pedro Pérez</nombre>
+        <telefono>993 220 373</telefono>
+        <email>pedropere89@outlook.com</email>
+        <dir:direccion ciudad="Cádiz">
+            <dir:calle>Avenida Bolivia 22</dir:calle>
+            <dir:codigoPostal>19009</dir:codigoPostal>
+        </dir:direccion>
+    </contacto>
+    
+</agenda>

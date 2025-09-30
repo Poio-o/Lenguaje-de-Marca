@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<banco>
+    <sucursal id='S01'>
+        <cuenta id='C01'>
+            <cliente id='CL001'>
+                <nombre>José Romero</nombre>
+                <dni>12345678a</dni>
+            </cliente>
+        </cuenta>
+        <cuenta id='C02'>
+            <cliente id='CL002'>
+                <nombre>Pedro Antonio</nombre>
+                <dni>22738490a</dni>
+            </cliente>
+        </cuenta>
+        <cuenta id='C03'>
+            <cliente id='CL003'>
+                <nombre>Manuel Jiménez</nombre>
+                <dni>27568904d</dni>
+            </cliente>
+            <cliente id='CL004'>
+                <nombre>Josefa Jiménez</nombre>
+                <dni>26475869h</dni>
+            </cliente>
+        </cuenta>
+    </sucursal>
+    <sucursal id='S02'>
+        <cuenta id='C04'>
+            <cliente id='CL005'>
+                <nombre>Marcos Antonio</nombre>
+                <dni>78987654c</dni>
+            </cliente>
+        </cuenta>
+        <cuenta id='C05'>
+            <cliente id='CL006'>
+                <nombre>Kevin Lomónaco</nombre>
+                <dni>65489761p</dni>
+            </cliente>
+        </cuenta>
+        <cuenta id='C06'>
+            <cliente id='CL007'>
+                <nombre>Augusto Fernández</nombre>
+                <dni>09876543p</dni>
+            </cliente>
+            <cliente id='CL008'>
+                <nombre> Enrique Fernández</nombre>
+                <dni>13578024y</dni>
+            </cliente>
+        </cuenta>
+    </sucursal>
+    <sucursal id='S03'>
+        <cuenta id='C07'>
+            <cliente id='CL009'>
+                <nombre>Felipe Montero</nombre>
+                <dni>65654387m</dni>
+            </cliente>
+        </cuenta>
+        <cuenta id='C08'>
+            <cliente id='CL010'>
+                <nombre>Dolores Heredia</nombre>
+                <dni>12309856z</dni>
+            </cliente>
+        </cuenta>
+        <cuenta id='C09'>
+            <cliente id='CL011'>
+                <nombre>María Sánchez</nombre>
+                <dni>12457890f</dni>
+            </cliente>
+            <cliente id='CL012'>
+                <nombre>Julio Sánchez</nombre>
+                <dni>45678934e</dni>
+            </cliente>
+        </cuenta>
+    </sucursal>
+</banco>
