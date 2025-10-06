@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<catalogo xmlns:lib="http://libros.towapos.org/"
+<catalogo xmlns:dc="http://purl.org/dc/elementos1.1/"
 xmlns:mus="https://musica.towapa/">
 
-    <lib:libro id="L1">
-        <lib:title>El Quijote</lib:title>
-        <lib:date>1605</lib:date>
-        <lib:publisher>Anaya</lib:publisher>
-    </lib:libro>
+    <dc:libro id="L1">
+        <dc:title>El Quijote</dc:title>
+        <dc:date>1605</dc:date>
+        <dc:publisher>Anaya</dc:publisher>
+    </dc:libro>
 
-    <lib:libro id="L2">
-        <lib:title>Capitán Calzoncillos</lib:title>
-        <lib:date>2013</lib:date>
-        <lib:publisher>Ediciones SM</lib:publisher>
-    </lib:libro>
+    <dc:libro id="L2">
+        <dc:title>Capitán Calzoncillos</dc:title>
+        <dc:date>2013</dc:date>
+        <dc:publisher>Ediciones SM</dc:publisher>
+    </dc:libro>
 
     <mus:disco id="D1">
         <mus:title>Cracker Island</mus:title>
