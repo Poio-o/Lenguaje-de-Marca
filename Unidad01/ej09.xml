@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<catalogo xmlns:dc="http://purl.org/dc/elementos1.1/">
+<catalogo xmlns:dc="http://purl.org/dc/elementos1.1/"
+xmlns:mus="https://musica.towapa/">
 
-    <libro id="1">
+    <libro id="L1">
         <dc:title>El Quijote</dc:title>
         <dc:date>1605</dc:date>
         <dc:publisher>Anaya</dc:publisher>
     </libro>
 
-    <libro id="2">
+    <libro id="L2">
         <dc:title>Capitán Calzoncillos</dc:title>
         <dc:date>2013</dc:date>
         <dc:publisher>Ediciones SM</dc:publisher>
     </libro>
+
+    <disco id="D1">
+        <mus:title>Cracker Island</mus:title>
+        <mus:date>2023</mus:date>
+        <mus:publisher>Studio 13</mus:publisher>
+    </disco>
 
 </catalogo>
