@@ -10,15 +10,73 @@
 </head>
 
 <body>
-    <header>
-        <h1>GameZone</h1>
+
+    <header class="cabecera">
+        <h1 class="titulo">GameZone</h1>
     </header>
-    <main>
-        <p>Bienvenid@ a GameZone.</p>
+
+    <main id="contenido-principal">
+        <section class="intro tarjeta">
+            <h2>Bienvenido a GameZone</h2>
+            <p>Portal de ejemplo para practicar HTML y CSS.</p>
+        </section>
+
+        <section class="listas-y-tabla tarjeta">
+            <h2>Guía rápida</h2>
+
+            <div class="listas">
+                <div>
+                    <h3>Características</h3>
+                    <ul class="lista">
+                        <li>Análisis semanales</li>
+                        <li>Guías paso a paso</li>
+                        <li>Comunidad activa</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Primeros pasos</h3>
+                    <ol class="lista">
+                        <li>Elige tu género favorito</li>
+                        <li>Explora la galería</li>
+                        <li>Lee las guías</li>
+                        <li>Comparte tu opinión</li>
+                    </ol>
+                </div>
+            </div>
+            <h3>Top Ventas</h3>
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <td>Juego</td>
+                        <td>Plataforma</td>
+                        <td>Unidades</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Racing Challenge</td>
+                        <td>PC</td>
+                        <td>120</td>
+                    </tr>
+                    <tr>
+                        <td>Magic Realms</td>
+                        <td>PS</td>
+                        <td>95</td>
+                    </tr>
+                    <tr>
+                        <td>City Builder</td>
+                        <td>Switch</td>
+                        <td>81</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </main>
-    <footer>
+
+    <footer class="pie">
         <p>&copy; 2025 Todos los derechos reservados</p>
     </footer>
+
 </body>
 
 </html>
