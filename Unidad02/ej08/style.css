@@ -1,0 +1,24 @@
+table {
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+th {
+    padding: 5%;
+    background-color: chocolate;
+}
+
+td {
+    padding: 2%;
+    background-color: rgb(243, 171, 119);
+}
+
+.recomendado {
+    background-color: rgb(241, 131, 53);
+    border: 2px solid black;
+}
