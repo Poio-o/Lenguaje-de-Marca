@@ -12,13 +12,20 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: #333;
     background: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Zonas principales */
 
 .cabecera {
-    text-align: center;
     padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: 1;
+    align-items: center;
 }
 
 .titulo {
@@ -28,8 +35,9 @@ body {
 
 #contenido-principal {
     padding: 1rem;
+    flex-grow: 1;
 }
-
+ 
 .tarjeta {
     background: #fff;
     border-radius: 10px;
@@ -53,6 +61,28 @@ body {
 
 .lista li {
     margin: 0.25rem 0;
+}
+
+.tabla {
+    width:100% ;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.tabla td, .tabla th {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.tabla th {
+    background: #2c3e50;
+    color: #fff;
+    text-align: center;
+}
+
+.table td {
+    text-align: left;
+    white-space: nowrap;
 }
 
 .pie {
