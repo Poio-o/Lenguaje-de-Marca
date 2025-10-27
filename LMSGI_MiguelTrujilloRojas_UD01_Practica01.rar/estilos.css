@@ -55,7 +55,7 @@ h2 {
     border-radius: 20px;
 }
 
-.lista-integrantes {
+.lista-integrantes ul{
     list-style: disc;
     padding-left: 20px;
 }
