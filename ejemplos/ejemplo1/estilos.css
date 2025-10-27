@@ -17,6 +17,11 @@ body {
     min-height: 100vh;
 }
 
+.logo {
+    height: 100px;
+    width: auto;
+}
+
 /* Zonas principales */
 
 .cabecera {
@@ -24,13 +29,26 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: 1;
     align-items: center;
+    background: #2c3e50 ;
 }
 
-.titulo {
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
     margin: 0;
-    color: #2c3e50;
+    padding: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    color: #e74c3c;
 }
 
 #contenido-principal {
@@ -45,6 +63,7 @@ body {
     margin: 1.5rem auto;
     padding: 1.5rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
 }
 
 /* Listas y layout simple */
@@ -90,5 +109,5 @@ body {
     padding: 1rem;
     color : #7f8c8d;
     font-size: 14px;
-    background: #ecf0f1;
+    background: #2c3e50;
 }
