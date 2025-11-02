@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página web de videojuegos">
+    <link rel="stylesheet" href="../estilos.css">
+    <title>GameZone</title>
+</head>
+
+<body>
+
+    <header class="cabecera">
+        <div class="brand">
+            <img class="logo" src="../img/gamezone-logo.png" alt="Logo de GameZone">
+        </div>
+
+        <nav class="navegacion">
+            <ul class="menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="#">Noticias</a></li>
+                <li><a href="#">Guías</a></li>
+                <li><a href="">Contacto</a></li>
+                <li><a href="registro.html"><img class="imagen-cuenta" src="../img/cuenta.png" alt="Imagen de cuenta"></a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main id="contenido-principal">
+
+        <section class="formulario-registro tarjeta">
+            <h2>Registro de usuario</h2>
+            <form name="registro" action="registro.php" method="post">
+
+                <label for="nombre">Nombre: </label>
+                <input type="text" name="nombre" id="nombre" required>
+
+                <label for="clave">Contraseña: </label>
+                <input type="password" name="clave" id="clave" minlength="4" maxlength="12" required>
+
+                <label for="correo">Correo: </label>
+                <input type="email" name="correo" id="correo" required>
+
+                <label for="nacimiento">Fecha de nacimiento: </label>
+                <input type="date" name="nacimiento" id="nacimiento">
+
+                <button type="submit">Registrar</button>
+            </form>
+            
+
+        </section>
+    </main>
+
+    <footer class="pie">
+        <p>&copy; 2025 Todos los derechos reservados</p>
+    </footer>
+
+</body>
+
+</html>
