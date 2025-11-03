@@ -22,7 +22,8 @@
                 <li><a href="#">Noticias</a></li>
                 <li><a href="#">Guías</a></li>
                 <li><a href="">Contacto</a></li>
-                <li><a href="registro.html"><img class="imagen-cuenta" src="../img/cuenta.png" alt="Imagen de cuenta"></a></li>
+                <li><a href="registro.html"><img class="imagen-cuenta" src="../img/cuenta.png"
+                            alt="Imagen de cuenta"></a></li>
 
             </ul>
         </nav>
@@ -46,9 +47,12 @@
                 <label for="nacimiento">Fecha de nacimiento: </label>
                 <input type="date" name="nacimiento" id="nacimiento">
 
+                <label for="dni">DNI/NIE: </label>
+                <input type="text" name="dni" id="dni" pattern="([X-Zx-z]|[0-9])[0-9]{7}[A-Za-z]" required>
+
                 <button type="submit">Registrar</button>
             </form>
-            
+
 
         </section>
     </main>
