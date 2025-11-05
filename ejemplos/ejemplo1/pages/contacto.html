@@ -30,45 +30,48 @@
     </header>
 
     <main id="contenido-registro">
-
         <section class="tarjeta">
-            <h2>Registro de usuario</h2>
-            <form name="registro" action="registro.php" method="post" class="formulario-registro">
+            <h2>Contacto</h2>
+            <form name="contacto" action="contacto.php" method="post" autocomplete="off" class="formulario-registro">
                 <fieldset>
-                    <legend>Datos de Registro</legend>
+                    <legend>Datos de Contacto</legend>
 
                     <div class="form-row">
-                        <label for="nombre">Nombre: </label>
-                        <input type="text" name="nombre" id="nombre" required>
+                        <label for="categoria">Categoría de Juego: </label>
+                        <select name="categoria" id="categoria">
+                            <option disabled selected>-Selecciona Categoría-</option>
+                            <option value="rol">Rol</option>
+                            <option value="aventura">Aventura</option>
+                            <option value="deportes">Deportes</option>
+                        </select>
                     </div>
 
                     <div class="form-row">
-                        <label for="clave">Contraseña: </label>
-                        <input type="password" name="clave" id="clave" minlength="4" maxlength="12" required>
+                        <p>Plataforma: </p>
+                        <label><input type="radio" name="plataforma" value="pc" required>PC</label>
+                        <label><input type="radio" name="plataforma" value="ps5">PS5</label>
                     </div>
 
                     <div class="form-row">
-                        <label for="correo">Correo: </label>
-                        <input type="email" name="correo" id="correo" required>
+                        <p>Suscribirse a noticias:</p>
+                        <label><input type="checkbox" name="suscripcion" checked>Sí</label>
+                    </div>
+
+                    <input type="hidden" name="product-id" value="1234">
+
+                    <div class="form-row">
+                        <label for="mensaje">Deja aquí tu mensaje:</label>
+                        <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
                     </div>
 
                     <div class="form-row">
-                        <label for="nacimiento">Fecha de Nacimiento: </label>
-                        <input type="date" name="nacimiento" id="nacimiento">
+                        <input type="submit" value="Contactar">
+                        <input type="reset" value="Limpiar formulario">
                     </div>
 
-                    <div class="form-row">
-                        <label for="dni">DNI/NIE: </label>
-                        <input type="text" name="dni" id="dni" pattern="([X-Zx-z]|[0-9])[0-9]{7}[A-Za-z]" required>
-                    </div>
-
-                    <div class="form-row">
-                        <input type="submit" value="Registrar">
-                    </div>
                 </fieldset>
             </form>
         </section>
-
     </main>
 
     <footer class="pie">
