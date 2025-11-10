@@ -223,3 +223,16 @@ body {
     text-decoration: none;
     border-radius: 8px;
 }
+
+.card-boton:hover {
+    background-color: #18222c;
+}
+
+.contenedor-grid {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 100px 100px;
+    gap: 10px;
+    background-color: #eaeaea;
+    padding: 10px;
+}
