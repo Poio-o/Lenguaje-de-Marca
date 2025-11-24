@@ -168,7 +168,7 @@ body {
 }
 
 .tarjeta.tienda {
-    width: min(1200px, 95%);
+    width: min(1500px, 95%);
 }
 
 .lista-cards--flex {
@@ -179,7 +179,7 @@ body {
 }
 
 .card {
-    width: 280px;
+    width: 100%;
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -191,7 +191,7 @@ body {
 .card-imagen {
     width: 100%;
     height: 180px;
-    object-fit: fill;
+    object-fit: contain;
     background-color: #f4f4f4;
     border-radius: 8px;
     margin-bottom: 8px;
@@ -245,7 +245,7 @@ body {
 }
 
 .item-3 {
-    background-color: purple ;
+    background-color: purple;
     order: -1;
 }
 
@@ -256,9 +256,9 @@ body {
 .parent {
     height: 700px;
     display: grid;
-    grid-template: 100px 1fr 60px / 200px 2fr 1fr ;
+    grid-template: 100px 1fr 60px / 200px 2fr 1fr;
     gap: 10px;
-    grid-template-areas: 
+    grid-template-areas:
         "header header  header"
         "nav    main    aside"
         "footer footer footer";
@@ -289,3 +289,56 @@ body {
     grid-area: footer;
 }
 
+.tarjeta.juegos {
+    width: min(1200px, 95%);
+}
+.lista-cards--grid {
+    display: grid;
+    /* grid-template-columns: repeat(3,1fr); */
+    grid-template-columns: minmax(220px, 1fr);
+    /* grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); */
+    /* grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); */
+    gap: 16px;
+}
+
+.card-destacada {
+    background-color: #52889e;
+    border: 2px solid darkgoldenrod;
+}
+
+
+@media (width >= 1024px) {
+    .tarjeta.juegos {
+        width: min(1200px, 95%);
+    }
+
+    .lista-cards--grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    #contenido-principal {
+        padding-inline: 2rem;
+    }
+
+    .card-destacada {
+    grid-column: span 2;
+}
+}
+
+@media (768px <= width) and (width < 1024px) {
+    .tarjeta.juegos {
+        width: min(1000px, 95%);
+    }
+
+    .lista-cards--grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+
+    #contenido-principal {
+        padding-inline: 1.5rem;
+    }
+
+    .card-destacada {
+    grid-column: span 2;
+}
+}
