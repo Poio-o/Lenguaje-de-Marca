@@ -236,11 +236,8 @@ body {
     column-gap: 25px;
     background-color: #eaeaea;
     padding: 10px;
-
     justify-items: stretch;
     align-items: stretch;
-
-
 }
 
 .item-grid {
