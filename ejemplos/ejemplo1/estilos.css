@@ -292,6 +292,7 @@ body {
 .tarjeta.juegos {
     width: min(1200px, 95%);
 }
+
 .lista-cards--grid {
     display: grid;
     /* grid-template-columns: repeat(3,1fr); */
@@ -312,8 +313,33 @@ body {
     padding-bottom: 0.2rem;
 }
 
+.guias h1 {
+    margin-top: 0;
+}
 
-@media (width >= 1024px) {
+.guias-videos {
+    margin-top: 2rem;
+}
+
+.guia-video h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.guia-video iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: 0;
+    border-radius: 8px;
+}
+
+.guias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+@media (width >=1024px) {
     .tarjeta.juegos {
         width: min(1200px, 95%);
     }
@@ -327,11 +353,11 @@ body {
     }
 
     .card-destacada {
-    grid-column: span 2;
-}
+        grid-column: span 2;
+    }
 }
 
-@media (768px <= width) and (width < 1024px) {
+@media (768px <=width) and (width < 1024px) {
     .tarjeta.juegos {
         width: min(1000px, 95%);
     }
@@ -345,6 +371,6 @@ body {
     }
 
     .card-destacada {
-    grid-column: span 2;
-}
+        grid-column: span 2;
+    }
 }
