@@ -10,7 +10,7 @@ body {
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Honk", Helvetica, sans-serif;
     color: #333;
     background: #f0f0f0;
     display: flex;
@@ -72,7 +72,7 @@ body {
 .tarjeta {
     background: #fff;
     border-radius: 10px;
-    width: min(900px 95%);
+    width: min(900px, 95%);
     margin: 1.5rem auto;
     padding: 1.5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -337,6 +337,24 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
+}
+
+.contacto-ubicacion {
+    margin-top: 2rem;
+}
+
+.mapa-contenedor {
+    margin-top: 1rem;
+}
+
+.mapa-contenedor iframe {
+    display: block;
+    width: 100%;
+    border: 0;
+    height: 350px;
+    max-width: 600px;
+    border-radius: 8px;
+    margin: 0 auto;
 }
 
 @media (width >=1024px) {

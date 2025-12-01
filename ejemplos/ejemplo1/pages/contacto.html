@@ -1,85 +1,126 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Página web de videojuegos">
-    <link rel="stylesheet" href="../estilos.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Página web de videojuegos" />
+    <link rel="stylesheet" href="../estilos.css" />
     <title>GameZone</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <header class="cabecera">
-        <div class="brand">
-            <img class="logo" src="../img/gamezone-logo.png" alt="Logo de GameZone">
-        </div>
+      <div class="brand">
+        <img
+          class="logo"
+          src="../img/gamezone-logo.png"
+          alt="Logo de GameZone"
+        />
+      </div>
 
-        <nav class="navegacion">
-            <ul class="menu">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="#">Noticias</a></li>
-                <li><a href="tienda.html">Tienda</a></li>
-                <li><a href="juegos.html">Juegos</a></li>
-                <li><a href="guias.html">Guías</a></li>
-                <li><a href="contacto.html" class="activo">Contacto</a></li>
-                <li><a href="registro.html"><img class="imagen-cuenta" src="../img/cuenta.png"
-                            alt="Imagen de cuenta"></a></li>
-
-            </ul>
-        </nav>
+      <nav class="navegacion">
+        <ul class="menu">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="#">Noticias</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="juegos.html">Juegos</a></li>
+          <li><a href="guias.html">Guías</a></li>
+          <li><a href="contacto.html" class="activo">Contacto</a></li>
+          <li>
+            <a href="registro.html"
+              ><img
+                class="imagen-cuenta"
+                src="../img/cuenta.png"
+                alt="Imagen de cuenta"
+            /></a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main id="contenido-registro">
-        <section class="tarjeta">
-            <h2>Contacto</h2>
-            <form name="contacto" action="contacto.php" method="post" autocomplete="off" class="formulario-registro">
-                <fieldset>
-                    <legend>Datos de Contacto</legend>
+      <section class="tarjeta">
+        <h2>Contacto</h2>
+        <form
+          name="contacto"
+          action="contacto.php"
+          method="post"
+          autocomplete="off"
+          class="formulario-registro"
+        >
+          <fieldset>
+            <legend>Datos de Contacto</legend>
 
-                    <div class="form-row">
-                        <label for="categoria">Categoría de Juego: </label>
-                        <select name="categoria" id="categoria">
-                            <option disabled selected>-Selecciona Categoría-</option>
-                            <option value="rol">Rol</option>
-                            <option value="aventura">Aventura</option>
-                            <option value="deportes">Deportes</option>
-                        </select>
-                    </div>
+            <div class="form-row">
+              <label for="categoria">Categoría de Juego: </label>
+              <select name="categoria" id="categoria">
+                <option disabled selected>-Selecciona Categoría-</option>
+                <option value="rol">Rol</option>
+                <option value="aventura">Aventura</option>
+                <option value="deportes">Deportes</option>
+              </select>
+            </div>
 
-                    <div class="form-row">
-                        <p>Plataforma: </p>
-                        <label><input type="radio" name="plataforma" value="pc" required>PC</label>
-                        <label><input type="radio" name="plataforma" value="ps5">PS5</label>
-                    </div>
+            <div class="form-row">
+              <p>Plataforma:</p>
+              <label
+                ><input
+                  type="radio"
+                  name="plataforma"
+                  value="pc"
+                  required
+                />PC</label
+              >
+              <label
+                ><input type="radio" name="plataforma" value="ps5" />PS5</label
+              >
+            </div>
 
-                    <div class="form-row">
-                        <p>Suscribirse a noticias:</p>
-                        <label><input type="checkbox" name="suscripcion" checked>Sí</label>
-                    </div>
+            <div class="form-row">
+              <p>Suscribirse a noticias:</p>
+              <label
+                ><input type="checkbox" name="suscripcion" checked />Sí</label
+              >
+            </div>
 
-                    <input type="hidden" name="product-id" value="1234">
+            <input type="hidden" name="product-id" value="1234" />
 
-                    <div class="form-row">
-                        <label for="mensaje">Deja aquí tu mensaje:</label>
-                        <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
-                    </div>
+            <div class="form-row">
+              <label for="mensaje">Deja aquí tu mensaje:</label>
+              <textarea
+                name="mensaje"
+                id="mensaje"
+                cols="30"
+                rows="10"
+              ></textarea>
+            </div>
 
-                    <div class="form-row">
-                        <input type="submit" value="Contactar">
-                        <input type="reset" value="Limpiar formulario">
-                    </div>
+            <div class="form-row">
+              <input type="submit" value="Contactar" />
+              <input type="reset" value="Limpiar formulario" />
+            </div>
+          </fieldset>
+        </form>
+      </section>
 
-                </fieldset>
-            </form>
-        </section>
+      <section class="tarjeta contacto-ubicacion">
+        <h2>Dónde estamos</h2>
+        <p>
+          Nos encontramos en tu centro educativo favorito. ¡Ven a visitarnos!
+        </p>
+        <div class="mapa-contenedor">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1598.6262103189454!2d-4.555358514189754!3d36.74051177172082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72f10963ce0f3d%3A0x310ae7d4bb2e8f7b!2sCPIFP%20Alan%20Turing!5e0!3m2!1ses!2ses!4v1764587546016!5m2!1ses!2ses"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </section>
     </main>
 
     <footer class="pie">
-        <p>&copy; 2025 Todos los derechos reservados</p>
+      <p>&copy; 2025 Todos los derechos reservados</p>
     </footer>
-
-</body>
-
+  </body>
 </html>

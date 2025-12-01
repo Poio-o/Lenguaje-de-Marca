@@ -1,97 +1,109 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Página web de videojuegos">
-    <link rel="stylesheet" href="estilos.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Página web de videojuegos" />
+    <link rel="stylesheet" href="estilos.css" />
     <title>GameZone</title>
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Honk&family=Vujahday+Script&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-
+  <body>
     <header class="cabecera">
-        <div class="brand">
-            <img class="logo" src="img/gamezone-logo.png" alt="Logo de GameZone">
-        </div>
+      <div class="brand">
+        <img class="logo" src="img/gamezone-logo.png" alt="Logo de GameZone" />
+      </div>
 
-        <nav class="navegacion">
-            <ul class="menu">
-                <li><a href="#" class="activo">Inicio</a></li>
-                <li><a href="#">Noticias</a></li>
-                <li><a href="pages/tienda.html">Tienda</a></li>
-                <li><a href="pages/juegos.html">Juegos</a></li>
-                <li><a href="pages/guias.html">Guías</a></li>
-                <li><a href="pages/contacto.html">Contacto</a></li>
-                <li><a href="pages/registro.html"><img class="imagen-cuenta" src="img/cuenta.png" alt="Imagen de cuenta"></a></li>
-                
-            </ul>
-        </nav>
+      <nav class="navegacion">
+        <ul class="menu">
+          <li><a href="#" class="activo">Inicio</a></li>
+          <li><a href="#">Noticias</a></li>
+          <li><a href="pages/tienda.html">Tienda</a></li>
+          <li><a href="pages/juegos.html">Juegos</a></li>
+          <li><a href="pages/guias.html">Guías</a></li>
+          <li><a href="pages/contacto.html">Contacto</a></li>
+          <li>
+            <a href="pages/registro.html"
+              ><img
+                class="imagen-cuenta"
+                src="img/cuenta.png"
+                alt="Imagen de cuenta"
+            /></a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main id="contenido-principal">
-        <section class="intro tarjeta">
-            <h2>Bienvenido a GameZone</h2>
-            <p>Portal de ejemplo para practicar HTML y CSS.</p>
-        </section>
+      <section class="intro tarjeta">
+        <h2>Bienvenido a GameZone</h2>
+        <p>Portal de ejemplo para practicar HTML y CSS.</p>
+      </section>
 
-        <section class="listas-y-tabla tarjeta">
-            <h2>Guía rápida</h2>
+      <section class="listas-y-tabla tarjeta">
+        <h2>Guía rápida</h2>
 
-            <div class="listas">
-                <div>
-                    <h3>Características</h3>
-                    <ul class="lista">
-                        <li>Análisis semanales</li>
-                        <li>Guías paso a paso</li>
-                        <li>Comunidad activa</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Primeros pasos</h3>
-                    <ol class="lista">
-                        <li>Elige tu género favorito</li>
-                        <li>Explora la galería</li>
-                        <li>Lee las guías</li>
-                        <li>Comparte tu opinión</li>
-                    </ol>
-                </div>
-            </div>
-            <h3>Top Ventas</h3>
-            <table class="tabla">
-                <thead>
-                    <tr>
-                        <th>Juego</th>
-                        <th>Plataforma</th>
-                        <th>Unidades</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Racing Challenge</td>
-                        <td>PC</td>
-                        <td>120</td>
-                    </tr>
-                    <tr>
-                        <td>Magic Realms</td>
-                        <td>PS</td>
-                        <td>95</td>
-                    </tr>
-                    <tr>
-                        <td>City Builder</td>
-                        <td>Switch</td>
-                        <td>81</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        <div class="listas">
+          <div>
+            <h3>Características</h3>
+            <ul class="lista">
+              <li>Análisis semanales</li>
+              <li>Guías paso a paso</li>
+              <li>Comunidad activa</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Primeros pasos</h3>
+            <ol class="lista">
+              <li>Elige tu género favorito</li>
+              <li>Explora la galería</li>
+              <li>Lee las guías</li>
+              <li>Comparte tu opinión</li>
+            </ol>
+          </div>
+        </div>
+        <h3>Top Ventas</h3>
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>Juego</th>
+              <th>Plataforma</th>
+              <th>Unidades</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Racing Challenge</td>
+              <td>PC</td>
+              <td>120</td>
+            </tr>
+            <tr>
+              <td>Magic Realms</td>
+              <td>PS</td>
+              <td>95</td>
+            </tr>
+            <tr>
+              <td>City Builder</td>
+              <td>Switch</td>
+              <td>81</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
 
     <footer class="pie">
-        <p>&copy; 2025 Todos los derechos reservados</p>
+      <p>&copy; 2025 Todos los derechos reservados</p>
     </footer>
-
-</body>
-
+  </body>
 </html>
