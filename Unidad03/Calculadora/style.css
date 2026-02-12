@@ -49,10 +49,9 @@ footer {
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     width: 320px;
-    display: grid;
 }
 
-.panel {
+.pantalla {
     font-family: 'Segment7Standard', monospace;
     font-size: 2.5rem;
     color: white;
@@ -103,6 +102,9 @@ footer {
 }
 
 /* Colores del texto para cada operación  */
+.color-normal {
+    color: white;
+}
 
 .color-error {
     color: red;
@@ -128,6 +130,6 @@ footer {
     color: #ff4bd8;
 }
 
-.color-Raizcuadrada {
+.color-raizcuadrada {
     color: #00ffbf;
 }
