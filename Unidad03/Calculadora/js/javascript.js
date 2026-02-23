@@ -8,6 +8,13 @@ const botonesNumeros = [...document.querySelectorAll(".numero")]; // Devuelve un
 const pantalla = document.querySelector(".pantalla");
 const botonesOperador = [...document.querySelectorAll(".operador")];
 const botonIgual = document.querySelector("#igual");
+const botonBorrar = document.querySelector("#borrar-entrada");
+const botonPunto = document.querySelector("#punto");
+const botonBorrarTodo = document.querySelector("#borrar-todo");
+const botonRetroceder = document.querySelector("#retroceso");
+const botonInverso = document.querySelector("#inverso");
+const botonCuadrado = document.querySelector("#cuadrado");
+const botonRaiz = document.querySelector("#raiz-cuadrada");
 
 // for (let i = 0; i < botonesNumeros.length; i++) {
 //     botonesNumeros[i].addEventListener("click",() =>{
@@ -15,28 +22,42 @@ const botonIgual = document.querySelector("#igual");
 //     });
 // }
 
-// Metodo forEach() [Arrays]
-botonesNumeros.forEach((boton) => {
-  boton.addEventListener("click", () => {
-    mostrarNumeroPantalla(boton.textContent);
-  });
-});
-
-botonesOperador.forEach((boton) => {
-  boton.addEventListener("click", () => {
-    manejarOperador(boton.textContent);
-  });
-});
-
-botonIgual.addEventListener("click", calcularOperacion);
-
 /**
  * @brief Ejecuta la inicialización de la calculadora una vez que el DOM está completamente cargado.
  *
  * Esta función prepara todo lo necesario para que la calculadora funciones, incluyendo la configuración de la interfaz, los valores iniciales de las variables necesarias y la vinculación de eventos a los controles.
  *
  */
-document.addEventListener("DOMContentLoaded", () => {});
+document.addEventListener("DOMContentLoaded", () => {
+  // Metodo forEach() [Arrays]
+  botonesNumeros.forEach((boton) => {
+    boton.addEventListener("click", () => {
+      mostrarNumeroPantalla(boton.textContent);
+    });
+  });
+
+  botonesOperador.forEach((boton) => {
+    boton.addEventListener("click", () => {
+      manejarOperador(boton.textContent);
+    });
+  });
+
+  botonIgual.addEventListener("click", calcularOperacion);
+
+  botonBorrar.addEventListener("click", borrarNumero);
+
+  botonPunto.addEventListener("click", mostrarPuntoPantalla);
+
+  botonBorrarTodo.addEventListener("click", borrarTodo);
+
+  botonRetroceder.addEventListener("click", retroceder);
+
+  botonInverso.addEventListener("click", () => operacionInmediata("inverso"));
+
+  botonCuadrado.addEventListener("click", () => operacionInmediata("cuadrado"));
+
+  botonRaiz.addEventListener("click", () => operacionInmediata("raiz"));
+});
 
 /**
  * @brief Deshabilita el botón del punto decimal en la calculadora.
@@ -45,7 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {});
  * Además, actualiza su clase CSS para reflejar visualmente que está deshabilitado.
  *
  */
-function deshabilitarPunto() {}
+function deshabilitarPunto() {
+  if (botonPunto) {
+    botonPunto.disabled = true;
+    botonPunto.classList.add("deshabilitado");
+  }
+}
 
 /**
  * @brief Habilita nuevamente el botón del punto decimal en la calculadora.
@@ -54,7 +80,12 @@ function deshabilitarPunto() {}
  * Además, actualiza su clase CSS para reflejar visualmente que está activo.
  *
  */
-function habilitarPunto() {}
+function habilitarPunto() {
+  if (botonPunto) {
+    botonPunto.disabled = false;
+    botonPunto.classList.remove("deshabilitado");
+  }
+}
 
 /**
  * @brief Actualiza el contenido mostrado en la pantalla de la calculadora.
@@ -68,7 +99,31 @@ function habilitarPunto() {}
  *
  */
 function actualizarPantalla() {
-  pantalla.textContent = valorAct;
+  let num = Number(valorAct);
+
+  if (!isFinite(num)) {
+    pantalla.classList.replace("color-normal", "color-error");
+    pantalla.textContent = "Error";
+    return;
+  }
+
+  let texto = String(valorAct);
+
+  if (texto.length > 12) {
+    texto = num.toPrecision(12);
+
+    if (texto.includes("e")) {
+      texto = Number(texto).toFixed(0);
+    }
+
+    texto = texto.replace(/\.?0+$/, "");
+
+    if (texto.length > 12) {
+      texto = texto.slice(0, 12);
+    }
+  }
+
+  pantalla.textContent = texto;
 }
 
 /**
@@ -85,9 +140,11 @@ function actualizarPantalla() {
  */
 function mostrarNumeroPantalla(numero) {
   pantallaColorNormal();
+  if (valorAct.length >= 12 && !resultadoMostrado) return;
   if (resultadoMostrado) {
     pantalla.textContent = valorAct;
     resultadoMostrado = false;
+    habilitarPunto();
   } else if (valorAct === "0") {
     valorAct = numero;
   } else {
@@ -103,7 +160,16 @@ function mostrarNumeroPantalla(numero) {
  * Si corresponde, agrega un punto y actualiza la pantalla.
  * Deshabilita el botón de punto para evitar múltiples decimales.
  */
-function mostrarPuntoPantalla() {}
+function mostrarPuntoPantalla() {
+  if (resultadoMostrado) {
+    valorAct = "0.";
+    resultadoMostrado = false;
+  } else if (!valorAct.includes(".")) {
+    valorAct += ".";
+  }
+  deshabilitarPunto();
+  actualizarPantalla();
+}
 
 /**
  * @brief Gestiona de forma correcta la operación matemática que hemos seleccionado (suma, resta, multiplicación, división).
@@ -120,6 +186,7 @@ function manejarOperador(operador) {
   valorAnt = valorAct;
   valorAct = "0";
   resultadoMostrado = false;
+  habilitarPunto();
 }
 
 /**
@@ -163,6 +230,7 @@ function calcularOperacion() {
   aplicarColorResultado(operadorAct);
   actualizarPantalla();
   resultadoMostrado = true;
+  habilitarPunto();
 }
 
 /**
@@ -174,12 +242,21 @@ function calcularOperacion() {
 function pantallaColorNormal() {
   pantalla.className = "pantalla color-normal";
 }
+
 /**
  * @brief Borra el número introducido actualmente en la pantalla.
  *
  * Restablece la entrada actual a 0.
  *
  */
+function borrarNumero() {
+  valorAct = "0";
+  resultadoMostrado = false;
+  habilitarPunto();
+  pantallaColorNormal();
+  actualizarPantalla();
+}
+
 /**
  * @brief Restablece completamente la calculadora a su estado inicial.
  *
@@ -187,7 +264,15 @@ function pantallaColorNormal() {
  * También actualiza la pantalla, restaura el color normal y habilita el punto decimal.
  *
  */
-function borrarTodo() {}
+function borrarTodo() {
+  valorAct = "0";
+  valorAnt = null;
+  operadorAct = null;
+  resultadoMostrado = false;
+  pantallaColorNormal();
+  habilitarPunto();
+  actualizarPantalla();
+}
 /**
  * @brief Elimina el último carácter del número mostrado en pantalla.
  *
@@ -195,7 +280,21 @@ function borrarTodo() {}
  * Cuando solo queda un carácter, la pantalla vuelve a mostrar 0.
  *
  */
-function retroceder() {}
+function retroceder() {
+  if (resultadoMostrado) {
+    valorAct = "0";
+    resultadoMostrado = false;
+  } else {
+    if (valorAct.endsWith(".")) {
+      habilitarPunto();
+    }
+    valorAct = valorAct.slice(0, -1);
+    if (valorAct === "" || valorAct === "-") {
+      valorAct = "0";
+    }
+  }
+  actualizarPantalla();
+}
 
 /**
  * @brief Realiza operaciones inmediatas sobre el número mostrado.
@@ -210,7 +309,41 @@ function retroceder() {}
  * @param {string} operacion - La operación a realizar: 'inverso', 'cuadrado' o 'raiz'.
  *
  */
-function operacionInmediata(operacion) {}
+function operacionInmediata(operacion) {
+  let num = parseFloat(valorAct);
+  let resultado;
+
+  switch (operacion) {
+    case "inverso":
+      if (num === 0) {
+        pantalla.classList.replace("color-normal", "color-error");
+        valorAct = "Error";
+        actualizarPantalla();
+        return;
+      }
+      resultado = 1 / num;
+      break;
+
+    case "cuadrado":
+      resultado = num * num;
+      break;
+
+    case "raiz":
+      if (num < 0) {
+        pantalla.classList.replace("color-normal", "color-error");
+        valorAct = "Error";
+        actualizarPantalla();
+        return;
+      }
+      resultado = Math.sqrt(num);
+      break;
+  }
+
+  valorAct = resultado;
+  aplicarColorResultado(operacion);
+  actualizarPantalla();
+  resultadoMostrado = true;
+}
 
 /**
  * @brief Aplica un color específico a la pantalla según la operación realizada.
@@ -269,7 +402,31 @@ function aplicarColorResultado(operador) {
  * - Tecla 'r': Calcula la raíz cuadrada
  *
  * @param {KeyboardEvent} teclaevento - Evento de teclado capturado.
- *
+ *a
  */
 
-window.addEventListener("keydown", (teclaevento) => {});
+window.addEventListener("keydown", (teclaevento) => {
+  const tecla = teclaevento.key;
+
+  if (/[0-9]/.test(tecla)) {
+    mostrarNumeroPantalla(tecla);
+  } else if (tecla === ".") {
+    mostrarPuntoPantalla();
+  } else if (tecla === "+" || tecla === "-" || tecla === "*" || tecla === "/") {
+    let operador = tecla;
+    if (operador === "*") operador = "x";
+    manejarOperador(operador);
+  } else if (tecla === "Enter" || tecla === "=") {
+    calcularOperacion();
+  } else if (tecla === "Backspace") {
+    retroceder();
+  } else if (tecla.toLowerCase() === "c") {
+    borrarTodo();
+  } else if (tecla.toLowerCase() === "i") {
+    operacionInmediata("inverso");
+  } else if (tecla.toLowerCase() === "s") {
+    operacionInmediata("cuadrado");
+  } else if (tecla.toLowerCase() === "r") {
+    operacionInmediata("raiz");
+  }
+});

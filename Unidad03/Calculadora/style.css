@@ -96,6 +96,10 @@ footer {
     background-color: #4b4bff;
 }
 
+.igual {
+    background-color: orange;
+}
+
 .deshabilitado{
     opacity: 0.4;
     cursor: not-allowed;
