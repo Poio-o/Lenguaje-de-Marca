@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display
+=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Miguel Trujillo Rojas" />
+    <title>Piedra, Papel, Tijera, Lagarto, Spock</title>
+    <link rel="shortcut icon" href="imagenes/spock-hand-gesture.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="estilos.css" />
+</head>
+
+<body>
+    <header>
+        <h1 class="titulo-juego">PIEDRA · PAPEL · TIJERA · LAGARTO · SPOCK</h1>
+        <h2 class="subtitulo-juego">El juego definitivo</h2>
+    </header>
+
+    <main>
+        <div class="paneles-arriba">
+            <section class="panel-seleccion-jugada">
+                <h2>Elige tu jugada</h2>
+                <section class="contenedor-elecciones-juego">
+                    <div class="boton-eleccion-jugada">
+                        <!-- DIOS -->
+                        <p class="icono-jugada boton-piedra">🪨</p>
+                        <p>Piedra</p>
+                        <!-- DIOS -->
+                    </div>
+                    <div class="boton-eleccion-jugada">
+                        <p class="icono-jugada boton-papel">📄</p>
+                        <p>Papel</p>
+                    </div>
+                    <div class="boton-eleccion-jugada">
+                        <p class="icono-jugada boton-tijeras">✂️</p>
+                        <p>Tijera</p>
+                    </div>
+                    <div class="boton-eleccion-jugada">
+                        <p class="icono-jugada boton-lagarto">🦎</p>
+                        <p>Lagarto</p>
+                    </div>
+                    <div class="boton-eleccion-jugada">
+                        <p class="icono-jugada boton-spock">🖖</p>
+                        <p>Spock</p>
+                    </div>
+                </section>
+            </section>
+
+            <section class="panel-batalla">
+                <h2>Batalla</h2>
+                <section class="contenedor-jugadores">
+                    <div class="jugador">
+                        <p class="etiqueta-jugador">TÚ</p>
+                        <!-- DIOS -->
+                        <section class="mostrar-jugada placeholder">
+                            <p>?</p>
+                        </section>
+                        <!-- DIOS -->
+                    </div>
+                    <div class="vs-circle">
+                        <p>VS</p>
+                    </div>
+                    <div class="jugador">
+                        <p class="etiqueta-jugador">CPU</p>
+                        <!-- DIOS -->
+                        <section class="mostrar-jugada placeholder">
+                            <p>?</p>
+                        </section>
+                        <!-- DIOS -->
+                    </div>
+                </section>
+
+
+            </section>
+        </div>
+
+        <section class="contenedor-resultado">
+            <div class="resultados">
+                <div class="mensaje-resultado">
+                    <p>Estadísticas del juego</p>
+                </div>
+            </div>
+
+            <div class="estadisticas-juego">
+                <div class="panel-estadistica">
+                    <span class="valor-estadistica">
+                        <p>0</p>
+                    </span>
+                    <span class="etiqueta-estadistica">victorias</span>
+                </div>
+
+                <div class="panel-estadistica">
+                    <span class="valor-estadistica">0</span>
+                    <span class="etiqueta-estadistica">derrotas</span>
+                </div>
+
+                <div class="panel-estadistica">
+                    <span class="valor-estadistica">0</span>
+                    <span class="etiqueta-estadistica">empates</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            Proyecto evaluación RA 03 - Lenguajes de marcas y sistemas de gestión de
+            información
+        </p>
+        <p>
+            <u>Proyecto realizado por</u>: Miguel Trujillo Rojas (Declaro que no he
+            usado IA en el proyecto)
+        </p>
+    </footer>
+    <script src="js/javascript.js"></script>
+</body>
+
+</html>
