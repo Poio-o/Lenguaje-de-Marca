@@ -1,19 +1,29 @@
-let eleccionUsuario = null;
-let display = null;
-let eleccion = null;
-let jugador = null;
-let usuario = null;
-let cpu = null;
-let resultado = null;
+"use strict";
+const opciones = [
+  { id: "Piedra", gana: ["Tijera", "Lagarto"], icono: "🪨" },
+  { id: "Papel", gana: ["Piedra", "Spock"], icono: "📄" },
+  { id: "Tijera", gana: ["Papel", "Lagarto"], icono: "✂️" },
+  { id: "Lagarto", gana: ["Papel", "Spock"], icono: "🦎" },
+  { id: "Spock", gana: ["Piedra", "Tijera"], icono: "🖖" },
+];
 
+const jugadorDisplay = document.querySelector(".jugador-display");
+const BotonesEleccion = document.querySelectorAll(".boton-eleccion-jugada");
+const cpuDisplay = document.querySelector(".cpu-display");
+const mensajeResultado = document.querySelector(".mensaje-resultado");
+const contadorVictorias = document.querySelector(".victorias");
+const contadorDerrotas = document.querySelector(".derrotas");
+const contadorEmpates = document.querySelector(".empates");
 
-const botonPiedra = document.querySelector(".boton-piedra")
-const botonPapel = document.querySelector(".boton-papel")
-const botonTijeras = document.querySelector(".boton-tijeras")
-const botonLagarto = document.querySelector(".boton-lagarto")
-const botonSpock = document.querySelector(".boton-spock")
+let victorias = 0;
+let derrotas = 0;
+let empates = 0;
 
-document.addEventListener("DOMContentLoaded", () => {});
+document.addEventListener("DOMContentLoaded", () => {
+  inicializarJuego();
+  inicializarTooltips();
+});
+
 /**
  * @brief Inicializa el juego configurando los elementos, estados y eventos necesarios.
  *
@@ -23,7 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {});
  *
  * @return {void} No devuelve ningún valor.
  */
-function inicializarJuego() {}
+function inicializarJuego() {
+  BotonesEleccion.forEach((boton) => {
+    boton.addEventListener("click", () => {
+      const eleccion = boton.querySelector(".tooltip").textContent;
+      jugar(eleccion);
+    });
+  });
+}
 
 /**
  * @brief Ejecuta una ronda del juego con la elección del usuario.
@@ -39,7 +56,14 @@ function inicializarJuego() {}
 "tijera"...).
  * @return {void} No devuelve ningún valor.
  */
-function jugar(eleccionUsuario) {}
+function jugar(eleccionUsuario) {
+  reiniciarDisplays();
+  const eleccionCPU = obtenerEleccionCPU();
+  mostrarEleccion(jugadorDisplay, eleccionUsuario, "JUGADOR");
+  mostrarEleccion(cpuDisplay, eleccionCPU, "CPU");
+  const resultado = calcularResultadoJugada(eleccionUsuario, eleccionCPU);
+  mostrarResultadoJugada(resultado, eleccionUsuario, eleccionCPU);
+}
 
 /**
  * @brief Genera aleatoriamente la elección de la CPU.
@@ -48,7 +72,9 @@ function jugar(eleccionUsuario) {}
  *
  * @return {string} La elección de la CPU (por ejemplo: "piedra", "papel" o "tijera"...).
  */
-function obtenerEleccionCPU() {}
+function obtenerEleccionCPU() {
+  return opciones.at(Math.random() * 5).id;
+}
 
 /**
  * @brief Muestra la elección de un jugador (jugador humano o CPU) en un display con icono y texto.
@@ -62,7 +88,20 @@ function obtenerEleccionCPU() {}
  * @param {string} jugador - Nombre del jugador que realizó la elección (por ejemplo: "JUGADOR" o "CPU").
  * @return {void} No devuelve ningún valor.
  */
-function mostrarEleccion(display, eleccion, jugador) {}
+function mostrarEleccion(display, eleccion, jugador) {
+  const opcion = opciones.find((opcion) => opcion.id == eleccion);
+
+  display.innerHTML = `
+        <div class="icono-jugada-grande">
+        ${opcion.icono}
+        </div>
+        
+        <div class="texto-jugada">
+        ${eleccion}
+        </div>`;
+
+  display.classList.replace("placeholder", "mostrar-jugada.active");
+}
 
 /**
  * @brief Reinicia los displays del juego a su estado inicial.
@@ -73,7 +112,16 @@ function mostrarEleccion(display, eleccion, jugador) {}
  *
  * @return {void} No devuelve ningún valor.
  */
-function reiniciarDisplays() {}
+function reiniciarDisplays() {
+  jugadorDisplay.innerHTML = "?";
+  jugadorDisplay.classList.replace("mostrar-jugada.active", "placeholder");
+
+  cpuDisplay.innerHTML = "?";
+  cpuDisplay.classList.replace("mostrar-jugada.active", "placeholder");
+
+  mensajeResultado.textContent = "Estadísticas del Juego";
+  mensajeResultado.classList.remove("ganador", "perdedor", "empate");
+}
 
 /**
  * @brief Calcula el resultado de una ronda entre el usuario y la CPU.
@@ -86,7 +134,18 @@ function reiniciarDisplays() {}
  * @param {string} cpu - La elección de la CPU (por ejemplo: "piedra", "papel", "tijera"...).
  * @return {string} El resultado de la ronda: "victoria", "derrota" o "empate".
  */
-function calcularResultadoJugada(usuario, cpu) {}
+function calcularResultadoJugada(usuario, cpu) {
+  if (opciones.find((opcion) => opcion.id == usuario).gana.includes(cpu)) {
+    return "victoria";
+  } else if (
+    opciones.find((opcion) => opcion.id == cpu).gana.includes(usuario)
+  ) {
+    return "derrota";
+  } else {
+    return "empate";
+  }
+}
+
 /**
  * @brief Muestra el resultado de una ronda en la interfaz del juego.
  *
@@ -99,7 +158,27 @@ function calcularResultadoJugada(usuario, cpu) {}
  * @param {string} cpu - Elección de la CPU (por ejemplo: "piedra", "papel", "tijera"...).
  * @return {void} No devuelve ningún valor.
  */
-function mostrarResultadoJugada(resultado, usuario, cpu) {}
+function mostrarResultadoJugada(resultado, usuario, cpu) {
+  switch (resultado) {
+    case "victoria":
+      mensajeResultado.innerHTML = `¡Ganaste! ${usuario} vence a ${cpu}`;
+      mensajeResultado.classList.add("mensaje-resultado", "ganador");
+      victorias++;
+      break;
+    case "derrota":
+      mensajeResultado.innerHTML = `¡Perdiste! ${cpu} vence a ${usuario}`;
+      mensajeResultado.classList.add("mensaje-resultado", "perdedor");
+      derrotas++;
+      break;
+    case "empate":
+      mensajeResultado.innerHTML = `¡Empate! ${cpu} es igual a ${usuario}`;
+      mensajeResultado.classList.add("mensaje-resultado", "empate");
+      empates++;
+      break;
+  }
+  actualizarContadores();
+}
+
 /**
  * @brief Actualiza los contadores de victorias, derrotas y empates en la interfaz.
  *
@@ -108,7 +187,12 @@ function mostrarResultadoJugada(resultado, usuario, cpu) {}
  *
  * @return {void} No devuelve ningún valor.
  */
-function actualizarContadores() {}
+function actualizarContadores() {
+  contadorVictorias.innerHTML = victorias;
+  contadorDerrotas.innerHTML = derrotas;
+  contadorEmpates.innerHTML = empates;
+}
+
 /**
  * @brief Inicializa los tooltips de los botones de elección.
  *
@@ -118,7 +202,17 @@ function actualizarContadores() {}
  *
  * @return {void} No devuelve ningún valor.
  */
-function inicializarTooltips() {}
+function inicializarTooltips() {
+  BotonesEleccion.forEach((boton) => {
+    boton.addEventListener("mouseover", () => {
+      const jugada = boton.querySelector(".tooltip").textContent;
+      const tooltip = opciones
+        .find((opcion) => opcion.id == jugada)
+        .gana.join(" y ");
+      boton.title = `${jugada} vence a: ${tooltip}`;
+    });
+  });
+}
 
 // Efecto de carga inicial suave
 setTimeout(() => {
