@@ -2,8 +2,9 @@
 <html lang="es">
 
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display
-=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Miguel Trujillo Rojas" />
@@ -15,7 +16,7 @@
 <body>
     <header>
         <h1 class="titulo-juego">PIEDRA · PAPEL · TIJERA · LAGARTO · SPOCK</h1>
-        <h2 class="subtitulo-juego">El juego definitivo</h2>
+        <h2 class="subtitulo-juego">El juego definitivo (con partes opcionales)</h2>
     </header>
 
     <main>
@@ -23,26 +24,26 @@
             <section class="panel-seleccion-jugada">
                 <h2>Elige tu jugada</h2>
                 <section class="contenedor-elecciones-juego">
-                    <div class="boton-eleccion-jugada">
+                    <button class="boton-eleccion-jugada">
                         <p class="icono-jugada boton-eleccion">🪨</p>
                         <p class="tooltip">Piedra</p>
-                    </div>
-                    <div class="boton-eleccion-jugada">
+                    </button>
+                    <button class="boton-eleccion-jugada">
                         <p class="icono-jugada boton-eleccion">📄</p>
                         <p class="tooltip">Papel</p>
-                    </div>
-                    <div class="boton-eleccion-jugada">
+                    </button>
+                    <button class="boton-eleccion-jugada">
                         <p class="icono-jugada boton-eleccion">✂️</p>
                         <p class="tooltip">Tijera</p>
-                    </div>
-                    <div class="boton-eleccion-jugada">
+                    </button>
+                    <button class="boton-eleccion-jugada">
                         <p class="icono-jugada boton-eleccion">🦎</p>
                         <p class="tooltip">Lagarto</p>
-                    </div>
-                    <div class="boton-eleccion-jugada">
+                    </button>
+                    <button class="boton-eleccion-jugada">
                         <p class="icono-jugada boton-eleccion">🖖</p>
                         <p class="tooltip">Spock</p>
-                    </div>
+                    </button>
                 </section>
             </section>
 
@@ -70,32 +71,37 @@
             </section>
         </div>
 
-        <section class="contenedor-resultado">
-            <div class="resultados">
-                <div class="mensaje-resultado">
-                    <p>Estadísticas del juego</p>
-                </div>
-            </div>
-
-            <div class="estadisticas-juego">
-                <div class="panel-estadistica">
-                    <span class="valor-estadistica">
-                        <p class="victorias">0</p>
-                    </span>
-                    <span class="etiqueta-estadistica">victorias</span>
+        <div class="paneles-abajo">
+            <section class="contenedor-resultado">
+                <div class="resultados">
+                    <div>
+                        <p class="mensaje-resultado">Estadísticas del Juego</p>
+                    </div>
                 </div>
 
-                <div class="panel-estadistica">
-                    <span class="valor-estadistica"><p class="derrotas">0</p></span>
-                    <span class="etiqueta-estadistica ">derrotas</span>
-                </div>
+                <div class="estadisticas-juego">
+                    <div class="panel-estadistica">
+                        <span class="valor-estadistica victorias">0</span>
+                        <span class="etiqueta-estadistica">victorias</span>
+                    </div>
 
-                <div class="panel-estadistica">
-                    <span class="valor-estadistica empates"><p class="empates">0</p></span>
-                    <span class="etiqueta-estadistica">empates</span>
+                    <div class="panel-estadistica">
+                        <span class="valor-estadistica derrotas">0</span>
+                        <span class="etiqueta-estadistica">derrotas</span>
+                    </div>
+
+                    <div class="panel-estadistica">
+                        <span class="valor-estadistica empates">0</span>
+                        <span class="etiqueta-estadistica">empates</span>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+            <section class="contenedor-botones-opcional">
+                <button class="boton-secundario reset">REINICIAR JUEGO</button>
+                <button class="boton-secundario reglas">MOSTRAR REGLAS</button>
+            </section>
+        </div>
+
     </main>
 
     <footer>

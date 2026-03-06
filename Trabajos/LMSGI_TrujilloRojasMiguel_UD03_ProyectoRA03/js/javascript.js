@@ -14,6 +14,8 @@ const mensajeResultado = document.querySelector(".mensaje-resultado");
 const contadorVictorias = document.querySelector(".victorias");
 const contadorDerrotas = document.querySelector(".derrotas");
 const contadorEmpates = document.querySelector(".empates");
+const BotonReset = document.querySelector(".reset");
+const BotonReglas = document.querySelector(".reglas");
 
 let victorias = 0;
 let derrotas = 0;
@@ -22,6 +24,12 @@ let empates = 0;
 document.addEventListener("DOMContentLoaded", () => {
   inicializarJuego();
   inicializarTooltips();
+
+  // Efecto de carga inicial suave
+  setTimeout(() => {
+    const contenedor = document.querySelector("main");
+    if (contenedor) contenedor.style.opacity = "1";
+  }, 100);
 });
 
 /**
@@ -40,6 +48,8 @@ function inicializarJuego() {
       jugar(eleccion);
     });
   });
+  BotonReset.addEventListener("click", resetearJuego);
+  BotonReglas.addEventListener("click", mostrarReglas);
 }
 
 /**
@@ -73,7 +83,7 @@ function jugar(eleccionUsuario) {
  * @return {string} La elección de la CPU (por ejemplo: "piedra", "papel" o "tijera"...).
  */
 function obtenerEleccionCPU() {
-  return opciones.at(Math.random() * 5).id;
+  return opciones[Math.floor(Math.random() * opciones.length)].id;
 }
 
 /**
@@ -113,10 +123,10 @@ function mostrarEleccion(display, eleccion, jugador) {
  * @return {void} No devuelve ningún valor.
  */
 function reiniciarDisplays() {
-  jugadorDisplay.innerHTML = "?";
+  jugadorDisplay.innerHTML = "<p>?</p>";
   jugadorDisplay.classList.replace("mostrar-jugada.active", "placeholder");
 
-  cpuDisplay.innerHTML = "?";
+  cpuDisplay.innerHTML = "<p>?</p>";
   cpuDisplay.classList.replace("mostrar-jugada.active", "placeholder");
 
   mensajeResultado.textContent = "Estadísticas del Juego";
@@ -214,8 +224,88 @@ function inicializarTooltips() {
   });
 }
 
-// Efecto de carga inicial suave
-setTimeout(() => {
-  const contenedor = document.querySelector("main");
-  if (contenedor) contenedor.style.opacity = "1";
-}, 100);
+/**
+ * @brief Muestra las reglas completas del juego en la consola.
+ *
+ * Esta función imprime un resumen de todas las reglas del juego,
+ * indicando qué jugada vence a cuáles otras.
+ *
+ * @return {void} No devuelve ningún valor.
+ */
+function mostrarReglas() {
+  console.log(`Reglas`);
+  console.log(`
+🪨 Piedra aplasta 🦎 Lagarto
+🪨 Piedra aplasta ✂️ Tijeras
+
+📄 Papel envuelve 🪨 Piedra
+📄 Papel desautoriza 🖖 Spock
+
+✂️ Tijeras cortan 📄 Papel
+✂️ Tijeras decapitan 🦎 Lagarto
+
+🦎 Lagarto envenena 🖖 Spock
+🦎 Lagarto devora 📄 Papel
+
+🖖 Spock rompe ✂️ Tijeras
+🖖 Spock vaporiza 🪨 Piedra
+`);
+}
+
+/**
+ * @brief Reinicia el juego a su estado inicial.
+ *
+ * Esta función realiza las siguientes acciones:
+ * - Restablece los contadores de victorias, derrotas y empates a cero.
+ * - Reinicia los displays del juego.
+ * - Actualiza los contadores en la interfaz.
+ * - Muestra un mensaje temporal indicando que el juego ha sido reiniciado.
+ *
+ * @return {void} No devuelve ningún valor.
+ */
+function resetearJuego() {
+  console.clear();
+  victorias = 0;
+  derrotas = 0;
+  empates = 0;
+  reiniciarDisplays();
+  actualizarContadores();
+  console.log("El juego ha sido reiniciado");
+}
+
+/**
+* @brief Maneja las pulsaciones de teclas para jugar o reiniciar el juego.
+*
+* Este listener escucha los eventos de teclado (`keydown`) y realiza las siguientes acciones:
+* - Asocia las teclas numéricas '1' a '5' a las elecciones del juego: "piedra", "papel", "tijera", "lagarto"
+o "spock".
+* - La tecla 'r' reinicia el juego.
+* - La tecla 's' muestra las reglas del juego.
+*
+* @param {KeyboardEvent} event - El evento de pulsación de tecla.
+*/
+document.addEventListener("keydown", (event) => {
+  switch (event.key.toLowerCase()) {
+    case "1":
+      jugar("Piedra");
+      break;
+    case "2":
+      jugar("Papel");
+      break;
+    case "3":
+      jugar("Tijera");
+      break;
+    case "4":
+      jugar("Lagarto");
+      break;
+    case "5":
+      jugar("Spock");
+      break;
+    case "r":
+      resetearJuego();
+      break;
+    case "s":
+      mostrarReglas();
+      break;
+  }
+});
